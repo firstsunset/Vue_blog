@@ -2,7 +2,7 @@
     <div class="post">
         <div>
             <div>Header: <strong>{{ post.title }}</strong></div>
-            <div>Description: <strong>{{ post.description }}</strong></div>
+            <div>Description: <strong>{{ post.body }}</strong></div>
         </div>
         <div class="post__btns">
             <my-button

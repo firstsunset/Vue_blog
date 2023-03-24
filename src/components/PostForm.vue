@@ -8,7 +8,7 @@
         />
 
         <my-input 
-            v-model="post.description"
+            v-model="post.body"
             type="text" 
             placeholder="Description"
         />
@@ -27,7 +27,7 @@ export default {
         return {
             post: {
                 title: "",
-                description: "",
+                body: "",
             }
         };
     },
@@ -37,7 +37,7 @@ export default {
             this.$emit("create", this.post);
             this.post = {
                 title: "",
-                description: ""
+                body: ""
             };
         },
     },
