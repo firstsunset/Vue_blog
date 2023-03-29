@@ -13,9 +13,11 @@
 <style scoped>
 .btn {
     margin: 10px 15px;
-    border: 1px solid teal;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
     background: none;
-    color: teal;
+    color: rgba(212,1,2,1);
     height: 30px;
     padding: 5px;
     border-radius: 4px;

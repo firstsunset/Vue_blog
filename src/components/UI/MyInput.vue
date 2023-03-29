@@ -25,9 +25,15 @@
 <style scoped>
 .input {
     width: 100%;
-    border: 1px solid teal;
+    height: 50px;
+    border: 1px solid rgba(224,224,224,1);
+    border-radius: 25px;
     padding: 10px 15px;
     margin-top: 15px;
+}
+
+input:focus {
+    outline: none;
 }
 
 </style>

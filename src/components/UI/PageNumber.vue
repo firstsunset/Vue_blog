@@ -21,7 +21,7 @@
 .page {
     width: 30px;
     height: 30px;
-    border: 1px solid teal;
+    border: 1px solid rgba(212,1,2,1);
     border-radius: 50%;
     text-align: center;
     padding-top: 5px;

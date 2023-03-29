@@ -1,12 +1,6 @@
 <template>
-    <div class="app">
-        <h1>Posts Page</h1>
-        <my-input
-            v-model="searchQuery"
-            placeholder="Search..."
-            v-focus
-        />
-        <div class="app__btns">
+    <div class="posts__page">
+        <div class="posts__page-btns">
             <my-button
                 @click="showDialog"
             >
@@ -15,6 +9,11 @@
             <my-select 
                 v-model="selectedSort"
                 :options="sortOptions"
+            />
+            <search-input
+                v-model="searchQuery"
+                placeholder="Search..."
+                v-focus
             />
         </div>
         <my-dialog v-model:show="dialogVisible">
@@ -28,8 +27,7 @@
             v-if="!isPostLoading"
         />
         <div v-else>Loading...</div>
-        <div v-intersection="loadMorePosts" class="observer"></div>
-        <!-- <div class="page__wrapper">
+        <div class="page__wrapper">
             <page-number
                 v-for="pageNumber in totalPage"
                 :page="pageNumber"
@@ -40,7 +38,7 @@
                 
                 @click="changePage(pageNumber)"
             />
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -61,7 +59,7 @@ import axios from 'axios';
                 selectedSort: '',
                 searchQuery: '',
                 page: 1,
-                limit: 10,
+                limit: 9,
                 totalPage: 0,
                 sortOptions: [
                     {value: 'title', name: 'Header'},
@@ -134,18 +132,24 @@ import axios from 'axios';
             }
         },
         watch: {
-        //    page() {
-        //     this.fetchPosts()
-        //    }
+           page() {
+            this.fetchPosts()
+           }
         }
 
 }
 </script>
 
 <style>
-.app__btns {
+.posts__page {
+    margin: 90px auto 40px;
+    width: 960px;
+}
+.posts__page-btns {
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .page__wrapper {
@@ -157,12 +161,8 @@ import axios from 'axios';
 }
 
 .current-page {
-    background: teal;
+    background: rgba(212,1,2,1);
     color: white;
 }
 
-.observer {
-    height: 30px;
-    background: gold;
-}
 </style>

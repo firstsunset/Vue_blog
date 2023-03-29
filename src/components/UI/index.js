@@ -3,6 +3,7 @@ import MyInput from './MyInput.vue';
 import MyDialog from './MyDialog.vue';
 import MySelect from './MySelect.vue';
 import PageNumber from './PageNumber.vue';
+import SearchInput from './SearchInput.vue';
 
 
 export default [
@@ -11,4 +12,5 @@ export default [
     MyDialog,
     MySelect,
     PageNumber,
+    SearchInput
 ]

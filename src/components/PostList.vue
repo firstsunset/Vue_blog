@@ -1,14 +1,13 @@
 <template>
     <div v-if="posts.length > 0" >
-        <h3>Posts List</h3>
-        <transition-group name="post-list">
+        <div class="post__list">
             <post-item
                 v-for="post in posts"
                 :post="post"
                 :key="post.id"
                 @remove="$emit('remove', post)"
             /> 
-        </transition-group>       
+        </div>       
     </div>
     <h2 v-else class="noposts__header">No posts</h2>
 </template>
@@ -31,21 +30,14 @@ import PostItem from './PostItem.vue';
 .noposts__header {
     color: red;
 }
-
+.post__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 20px;
+}
 .post-list-item {
-  display: inline-block;
   margin-right: 10px;
 }
-.post-list-enter-active, .post-list-leave-active {
-  transition: all 0.4s;
-}
-.post-list-enter, .post-list-leave-to {
-  opacity: 0;
-  transform: translateX(130px);
-}
-
-.post-list-move {
-  transition: transform 0.4s ease;
-}
-
 </style>
