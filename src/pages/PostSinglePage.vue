@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import axios from 'axios';
-
+import api from '@/store/axios';
     export default {
         data() {
             return {
@@ -27,7 +26,7 @@ import axios from 'axios';
             async getPostById() {
                 const id = this.$route.params.id;
                 try {
-                    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+                    const response = await api.get(`/posts/${id}`)
                     this.post = response.data;
                 } catch (error) {
                     console.log(error);

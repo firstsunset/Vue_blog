@@ -45,7 +45,7 @@
 <script>
 import PostForm from '@/components/PostForm.vue';
 import PostList from '@/components/PostList.vue';
-import axios from 'axios';
+import api from '@/store/axios';
     export default {
         components: {
     PostForm,
@@ -84,7 +84,7 @@ import axios from 'axios';
             async fetchPosts() {
                 try {
                     this.isPostLoading = true;
-                    const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+                    const response = await api.get('/posts', {
                         params: {
                             _page: this.page,
                             _limit: this.limit
@@ -103,7 +103,7 @@ import axios from 'axios';
                 try {
                     this.page +=1;
                     this.isPostLoading = true;
-                    const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+                    const response = await api.get('/posts', {
                         params: {
                             _page: this.page,
                             _limit: this.limit

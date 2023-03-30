@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from '@/store/axios';
 
 export const postModule = {
     state: () => ({
@@ -47,7 +47,7 @@ export const postModule = {
         async fetchPosts({state, commit}) {
             try {
                 commit('setLoading', true);
-                const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+                const response = await api.get('/posts', {
                     params: {
                         _page: state.page,
                         _limit: state.limit
@@ -65,7 +65,7 @@ export const postModule = {
             try {
                 commit('setPage', state.page + 1);
                 commit('setLoading', true);
-                const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+                const response = await api.get('/posts', {
                     params: {
                         _page: state.page,
                         _limit: state.limit
